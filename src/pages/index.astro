@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Main from '../components/Main.astro';
 import Card from '../components/Card.astro';
+import { Main } from '../components/Main'
 ---
 
 <Layout title="Logo">
@@ -62,7 +62,7 @@ import Card from '../components/Card.astro';
 			/>
 		</ul>
 	</main> -->
-	<Main />
+	<Main client:load />
 </Layout>
 
 <style>
