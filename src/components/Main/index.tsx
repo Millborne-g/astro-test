@@ -195,6 +195,12 @@ export const Main = () => {
                                         className="nextprevBtn"
                                         onClick={prev}
                                         disabled={currentPage === 1}
+                                        style={{
+                                            backgroundColor:
+                                                (currentPage === 1 ||
+                                                    totalPages === 0) &&
+                                                "#C0C0C0",
+                                        }}
                                     >
                                         <i className="fa-solid fa-arrow-left"></i>
                                     </button>
@@ -254,6 +260,12 @@ export const Main = () => {
                                         className="nextprevBtn"
                                         onClick={next}
                                         disabled={currentPage === totalPages}
+                                        style={{
+                                            backgroundColor:
+                                                (currentPage === totalPages ||
+                                                    totalPages === 0) &&
+                                                "#C0C0C0",
+                                        }}
                                     >
                                         <i className="fa-solid fa-arrow-right"></i>
                                     </button>
