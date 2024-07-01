@@ -1,9 +1,11 @@
+import logo from "../../../../public/logo.png";
+
 export const Header = () => {
     return (
         <>
             {/* logo */}
             <div className="content-logo-container">
-                <img className="logo-img" src="../../public/logo.png" alt="" />
+                <img className="logo-img" src={logo.src} alt="" />
             </div>
 
             {/* <!-- options --> */}
