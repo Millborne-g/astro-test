@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import { Main } from '../components/Main';
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { dbFirestore } from "../firebaseFirstore";
+
+let dataFireStore = [];
+
+// Fetch data from Firestore
+const fetchData = async () => {
+    const colRef = collection(dbFirestore, "todo");
+    const snapshot = await getDocs(colRef);
+
+    dataFireStore = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        task: doc.data().task,
+        user: doc.data().user,
+    }));
+};
+
+await fetchData();
+---
+
+<Layout title="Logo">
+	<div>
+        {dataFireStore.length > 0 ? (
+            dataFireStore.map(item => (
+                <div>{item.user}</div>
+                <div>{item.task}</div>
+            ))
+        ) : (
+            <div>No tasks found.</div>
+        )}
+    </div>
+</Layout>
